@@ -1,0 +1,26 @@
+Sure, here's the proposed content for the /deepguard/pyproject.toml file:
+
+[tool.poetry]
+name = "deepguard"
+version = "0.1.0"
+description = "AI-Powered Deepfake and Cyber Harassment Detection System"
+authors = ["Your Name <youremail@example.com>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+fastapi = "^0.68.0"
+uvicorn = "^0.15.0"
+pillow = "^8.4.0"
+opencv-python = "^4.5.3.20210927"
+numpy = "^1.21.2"
+scikit-learn = "^0.24.2"
+transformers = "^4.11.3"
+facenet-pytorch = "^2.5.2"
+librosa = "^0.8.1"
+moviepy = "^1.0.3"
+python-dotenv = "^0.19.1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
