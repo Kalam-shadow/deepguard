@@ -39,8 +39,33 @@ class DetectionService:
 
     def analyze_text(self, text: str) -> Dict[str, Any]:
         try:
-            harassment_result = self.harassment_model.detect_harassment([text])
-            return {"deepfake": None, "harassment": harassment_result}
+            # detect_harassment returns a list, so we take the first result
+            harassment_results = self.harassment_model.detect_harassment([text])
+            harassment_result = harassment_results[0] if harassment_results else {}
+            
+            # Convert the model output to our expected format
+            if isinstance(harassment_result, dict):
+                # Check if this looks like harassment based on toxic-bert output
+                toxic_score = harassment_result.get('TOXIC', 0.0)
+                is_harassment = toxic_score > 0.5
+                confidence = toxic_score if is_harassment else (1.0 - toxic_score)
+                
+                formatted_result = {
+                    'is_harassment': is_harassment,
+                    'confidence': confidence,
+                    'raw_scores': harassment_result,
+                    'categories': ['toxic'] if is_harassment else ['safe']
+                }
+            else:
+                # Fallback format
+                formatted_result = {
+                    'is_harassment': False,
+                    'confidence': 0.0,
+                    'raw_scores': harassment_result,
+                    'categories': ['unknown']
+                }
+            
+            return {"deepfake": None, "harassment": formatted_result}
         except Exception as e:
             raise HTTPException(status_code=500, detail=f"Error analyzing text: {str(e)}")
 

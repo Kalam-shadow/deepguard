@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ShieldX</string>
+    <string name="app_description">AI-Powered Harassment Detection</string>
+    
+    <!-- Main Activity -->
+    <string name="protection_active">Protection Active</string>
+    <string name="setup_required">Setup Required</string>
+    <string name="backend_connected">Backend Connected</string>
+    <string name="backend_disconnected">Backend Disconnected</string>
+    <string name="enable_protection">Enable Protection</string>
+    <string name="refresh_status">Refresh Status</string>
+    <string name="test_connection">Test Backend Connection</string>
+    
+    <!-- Notifications -->
+    <string name="harassment_detected">Harassment Detected</string>
+    <string name="potential_harassment">Potential Harassment</string>
+    <string name="harassment_alert_channel">Harassment Alerts</string>
+    <string name="harassment_alert_description">Alerts for detected harassment in notifications</string>
+    
+    <!-- Permission Messages -->
+    <string name="notification_permission_required">Notification permission is required for ShieldX to work</string>
+    <string name="enable_notification_listener">Please enable ShieldX in the Notification Access settings</string>
+    <string name="connection_test_started">Connection test started - check Logcat for results</string>
+    
+    <!-- Status Messages -->
+    <string name="protection_active_desc">ShieldX is monitoring your notifications for harassment</string>
+    <string name="setup_required_desc">Notification access permission is required</string>
+    <string name="backend_connected_desc">Connected to DeepGuard AI backend</string>
+    <string name="backend_disconnected_desc">Unable to reach harassment detection backend</string>
+    
+    <!-- Monitored Apps -->
+    <string name="monitored_apps">Monitored Apps</string>
+    <string name="monitored_apps_list">WhatsApp • Messenger • Instagram • Telegram • SMS • Snapchat</string>
+    
+    <!-- Alert Templates -->
+    <string name="harassment_alert_title">🛡️ Harassment Detected</string>
+    <string name="harassment_alert_message">ShieldX detected potential harassment in %1$s with %2$d%% confidence.\n\nType: %3$s\nFrom: %4$s</string>
+    
+    <string name="fallback_alert_title">⚠️ Potential Harassment</string>
+    <string name="fallback_alert_message">ShieldX detected potentially harmful content in %1$s using local detection.\n\nFrom: %2$s</string>
+</resources>

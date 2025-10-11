@@ -9,6 +9,7 @@ from src.utils.logging import logger
 
 # Import the router that contains all your endpoints
 from src.api.routes import router as api_router
+from src.api.mobile_routes import mobile_router
 
 # Metadata for API documentation tags
 tags_metadata = [
@@ -24,6 +25,10 @@ tags_metadata = [
         "name": "Analysis",
         "description": "Endpoints for deepfake and harassment analysis.",
     },
+    {
+        "name": "Mobile",
+        "description": "Mobile-specific endpoints for real-time notification monitoring.",
+    },
 ]
 
 # Create the main FastAPI application instance
@@ -38,23 +43,8 @@ app = FastAPI(
 )
 
 # --- Application Lifecycle Events ---
-@app.on_event("startup")
-async def startup_event():
-    """
-    Actions to perform on application startup.
-    (e.g., loading ML models, connecting to a database)
-    """
-    logger.info("Application startup...")
-    # In a real app, you might load models here:
-    # service.load_models()
-
-@app.on_event("shutdown")
-async def shutdown_event():
-    """
-    Actions to perform on application shutdown.
-    (e.g., cleaning up resources, closing database connections)
-    """
-    logger.info("Application shutdown.")
+# Note: Startup and shutdown events removed to fix async issues
+# Models are loaded lazily when first accessed
 
 
 # --- Add CORS Middleware ---
@@ -67,8 +57,9 @@ if settings.ALLOWED_ORIGINS:
         allow_headers=["*"],
     )
 
-# --- Include Your API Router ---
+# --- Include Your API Routers ---
 app.include_router(api_router, prefix=settings.API_PREFIX)
+app.include_router(mobile_router, prefix=settings.API_PREFIX)
 
 
 @app.get("/", tags=["Health"])

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.ShieldX" parent="Theme.AppCompat.NoActionBar">
+        <item name="colorPrimary">@color/shield_primary</item>
+        <item name="colorPrimaryDark">@color/shield_primary_variant</item>
+        <item name="colorAccent">@color/shield_secondary</item>
+    </style>
+</resources>
