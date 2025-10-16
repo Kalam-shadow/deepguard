@@ -12,3 +12,4 @@ numpy>=1.21.2
 scikit-learn>=0.24.2
 transformers>=4.10.0
 torch>=1.9.0
+gunicorn
