@@ -1,0 +1,34 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="48dp"
+    android:height="48dp"
+    android:viewportWidth="48"
+    android:viewportHeight="48"
+    android:tint="@color/shield_primary">
+    
+    <!-- Scanning Lines -->
+    <path
+        android:fillColor="#40000000"
+        android:pathData="M8,16h32v2H8V16z"/>
+    <path
+        android:fillColor="#60000000"
+        android:pathData="M8,20h32v2H8V20z"/>
+    <path
+        android:fillColor="#80000000"
+        android:pathData="M8,24h32v3H8V24z"/>
+    <path
+        android:fillColor="#60000000"
+        android:pathData="M8,28h32v2H8V28z"/>
+    <path
+        android:fillColor="#40000000"
+        android:pathData="M8,32h32v2H8V32z"/>
+    
+    <!-- Border Frame -->
+    <path
+        android:fillColor="#FF000000"
+        android:pathData="M12,8v4h-4V8H12M14,6H6v8h8V6L14,6z M12,36v4h-4v-4H12M14,34H6v8h8V34L14,34z M36,8v4h-4V8H36M38,6h-8v8h8V6L38,6z M36,36v4h-4v-4H36M38,34h-8v8h8V34L38,34z"/>
+    
+    <!-- Center Shield -->
+    <path
+        android:fillColor="#FF000000"
+        android:pathData="M24,12L18,16v8c0,6 5.5,12 6,12s6,-6 6,-12v-8L24,12z"/>
+</vector>

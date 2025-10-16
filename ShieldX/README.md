@@ -15,7 +15,7 @@
 ```powershell
 # In PowerShell (as Administrator):
 cd c:\deepguard\deepgaurd\deepguard
-python -m uvicorn src.main:app --host 0.0.0.0 --port 8000 --reload
+python -m uvicorn src.main:app --host 0.0.0.0 --port 8001 --reload
 ```
 
 #### **3. Build and Run**
@@ -101,10 +101,10 @@ File > Invalidate Caches and Restart > Invalidate and Restart
 ```powershell
 # 1. Ensure backend is running:
 cd c:\deepguard\deepgaurd\deepguard
-python -m uvicorn src.main:app --host 0.0.0.0 --port 8000 --reload
+python -m uvicorn src.main:app --host 0.0.0.0 --port 8001 --reload
 
 # 2. Test API directly:
-curl http://192.168.56.1:8000/api/v1/mobile/analyze-notification -X POST -H "Content-Type: application/json" -d '{"content":"test","source":"test","sender":"test","timestamp":1234567890}'
+curl http://192.168.56.1:8001/api/v1/mobile/analyze-notification -X POST -H "Content-Type: application/json" -d '{"content":"test","source":"test","sender":"test","timestamp":1234567890}'
 ```
 
 ### **Gradle sync issues:**

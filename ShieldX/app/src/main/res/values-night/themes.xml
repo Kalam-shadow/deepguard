@@ -1,8 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="Theme.ShieldX" parent="Theme.AppCompat.NoActionBar">
-        <item name="colorPrimary">@color/shield_primary</item>
-        <item name="colorPrimaryDark">@color/shield_primary_variant</item>
+    <style name="Theme.ShieldX" parent="Theme.MaterialComponents.NoActionBar">
+        <!-- Primary colors -->
+        <item name="colorPrimary">@color/shield_secondary</item>
+        <item name="colorPrimaryVariant">@color/success_color</item>
+        <item name="colorOnPrimary">@color/text_primary_dark</item>
+        
+        <!-- Secondary colors -->
+        <item name="colorSecondary">@color/shield_primary</item>
+        <item name="colorSecondaryVariant">@color/shield_primary_variant</item>
+        <item name="colorOnSecondary">@color/text_on_primary</item>
+        
+        <!-- Surface colors -->
+        <item name="colorSurface">@color/gray_800</item>
+        <item name="colorOnSurface">@color/white</item>
+        
+        <!-- Background colors -->
+        <item name="android:colorBackground">@color/gray_900</item>
+        <item name="colorOnBackground">@color/white</item>
+        
+        <!-- Error colors -->
+        <item name="colorError">@color/danger_color</item>
+        <item name="colorOnError">@color/white</item>
+        
+        <!-- Legacy support -->
         <item name="colorAccent">@color/shield_secondary</item>
+        <item name="colorPrimaryDark">@color/shield_primary_variant</item>
+        
+        <!-- Status bar -->
+        <item name="android:statusBarColor">@color/gray_900</item>
+        <item name="android:windowLightStatusBar">false</item>
     </style>
 </resources>
