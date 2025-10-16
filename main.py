@@ -17,8 +17,18 @@ from src.utils.logging import logger
 app = FastAPI(title="DeepGuard API v3.0", version="3.0.0")
 app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_credentials=True, allow_methods=["*"], allow_headers=["*"])
 
-users_db = {"testuser": {"user_id": "1", "username": "testuser", "email": "test@deepguard.com", "full_name": "Test User", "hashed_password": get_password_hash("password123")}}
+users_db = {}
 analytics_db = {"total_scans": 0, "threats_detected": 0, "recent_scans": []}
+
+@app.on_event("startup")
+def initialize_users_db():
+    users_db["testuser"] = {
+        "user_id": "1",
+        "username": "testuser",
+        "email": "test@deepguard.com",
+        "full_name": "Test User",
+        "hashed_password": get_password_hash("password123")
+    }
 
 class SignupRequest(BaseModel):
     username: str; email: str; password: str; full_name: Optional[str] = None
