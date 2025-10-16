@@ -14,13 +14,15 @@ class ShieldXAPI {
     companion object {
         private const val TAG = "ShieldXAPI"
         
-        // Try these IP addresses in order - updated with current network IPs
-        private val BASE_URLS = listOf(// Current network IP on port 8001 (PRIMARY)
-            "http://192.168.56.1:8001",    // VirtualBox host IP
-            "http://192.168.137.1:8001",   // Mobile hotspot IP
-            "http://10.0.2.2:8001",        // Android emulator host
-            "http://192.168.0.22:8000",    // Fallback to port 8000
-            "http://192.168.56.1:8000",    // Fallback VirtualBox
+        // Try these URLs in order - Production first, then local development
+        private val BASE_URLS = listOf(
+            "https://deepguard-api.onrender.com", // ✅ PRODUCTION (Render) - PRIMARY
+            "http://10.0.2.2:8002",        // Android emulator host (Development)
+            "http://192.168.0.22:8002",    // Current Wi-Fi IP on port 8002
+            "http://192.168.137.1:8002",   // Mobile hotspot IP
+            "http://192.168.56.1:8002",    // VirtualBox host IP
+            "http://192.168.0.22:8001",    // Fallback to port 8001
+            "http://192.168.56.1:8001",    // Fallback VirtualBox
         )
         
         private const val AUTH_TOKEN = "Bearer your-jwt-token-here" // Replace with actual token
@@ -43,9 +45,9 @@ class ShieldXAPI {
         
         val okHttpClient = OkHttpClient.Builder()
             .addInterceptor(loggingInterceptor)
-            .connectTimeout(10, TimeUnit.SECONDS)
-            .readTimeout(15, TimeUnit.SECONDS)
-            .writeTimeout(15, TimeUnit.SECONDS)
+            .connectTimeout(60, TimeUnit.SECONDS)  // Increased for Render cold starts
+            .readTimeout(60, TimeUnit.SECONDS)     // Render free tier needs time to wake up
+            .writeTimeout(30, TimeUnit.SECONDS)
             .build()
         
         // Try each base URL until one works

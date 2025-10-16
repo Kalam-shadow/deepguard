@@ -36,12 +36,18 @@ object ConnectionTester {
         Log.i(TAG, "=== Testing All Possible Endpoints ===")
         
         val baseUrls = listOf(
-            "http://192.168.56.1:8000",
-            "http://192.168.137.1:8000", 
-            "http://172.16.125.114:8000",
-            "http://10.0.2.2:8000",
-            "http://192.168.1.100:8000",
-            "http://localhost:8000"
+            "https://deepguard-api.onrender.com", // ✅ PRODUCTION (Render) - Test cloud deployment
+            "http://192.168.0.22:8001",  // Current Wi-Fi IP with correct port
+            "http://10.0.2.2:8002",      // Emulator with correct port (PRIMARY)
+            "http://192.168.0.22:8002",  // Wi-Fi IP with correct port
+            "http://192.168.56.1:8002",  // VirtualBox with correct port
+            "http://192.168.137.1:8002", // Mobile hotspot with correct port
+            "http://192.168.0.22:8001",  // Fallback port 8001
+            "http://192.168.56.1:8001",  // VirtualBox fallback
+            "http://192.168.137.1:8001", // Mobile hotspot fallback
+            "http://10.0.2.2:8001",      // Emulator fallback
+            "http://localhost:8002",
+            "http://localhost:8001"
         )
         
         baseUrls.forEach { baseUrl ->
